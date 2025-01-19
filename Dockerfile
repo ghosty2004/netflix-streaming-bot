@@ -4,6 +4,7 @@ WORKDIR /app
 # Update and install required dependencies
 RUN apt-get update
 RUN apt-get install -y sudo acl libnss3-dev libgdk-pixbuf2.0-dev libgtk-3-dev libxss-dev libasound2 ffmpeg
+RUN apt-get install -y chromium
 
 # Add user and set permissions
 RUN \

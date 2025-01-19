@@ -19,6 +19,7 @@ const browser = await launch(puppeteer, {
     height: 1080,
   },
   args: ["--no-sandbox"],
+  executablePath: '/usr/bin/chromium'
 });
 
 // get the first page which is automatically created by puppeter
