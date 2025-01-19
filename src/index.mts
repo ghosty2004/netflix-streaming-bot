@@ -19,7 +19,8 @@ const browser = await launch(puppeteer, {
     height: 1080,
   },
   args: ["--no-sandbox"],
-  executablePath: '/usr/bin/chromium'
+  pipe: true,
+  // executablePath: "/usr/bin/chromium",
 });
 
 // get the first page which is automatically created by puppeter
@@ -111,6 +112,13 @@ discordCommand.add("startstream", async (message) => {
     mimeType: "video/WEBM;codecs=VP8,OPUS",
     videoBitsPerSecond: 1000000,
     audioBitsPerSecond: 64000,
+    videoConstraints: {
+      mandatory: {
+        width: 1920,
+        height: 1080,
+        sampleRate: 44100,
+      },
+    },
   });
 
   await streamer.joinVoice(message.guild.id, message.member.voice.channelId, {
