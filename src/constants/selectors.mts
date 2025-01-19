@@ -25,3 +25,18 @@ export const main = {
   searchVideoGallery: '[data-uia="search-video-gallery"]',
   searchVideoGalleryItem: '[data-uia="search-video-gallery-item"]',
 };
+
+// selectors related to privacy
+export const privacy = {
+  accept: "#onetrust-accept-btn-handler",
+};
+
+// selectors related to video player
+export const videoPlayer = {
+  controlAudioSubtitleBtn: '[data-uia="control-audio-subtitle"]',
+  audioSubtitleMenu: '[data-uia="selector-audio-subtitle"]',
+  audios:
+    '[data-uia="selector-audio-subtitle"] > :nth-child(1) > :nth-child(2) > li',
+  subtitles:
+    '[data-uia="selector-audio-subtitle"] > :nth-child(2) > :nth-child(2) > li',
+};
