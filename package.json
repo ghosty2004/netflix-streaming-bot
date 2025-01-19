@@ -1,0 +1,16 @@
+{
+  "main": "src/index.mts",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --experimental-strip-types src/index.mts",
+    "start": "node --experimental-strip-types src/index.mts"
+  },
+  "dependencies": {
+    "discord.js": "^14.17.3",
+    "puppeteer": "^24.1.0",
+    "puppeteer-core": "^24.1.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "ts-mixer": "^6.0.4"
+  }
+}
