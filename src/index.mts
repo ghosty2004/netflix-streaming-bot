@@ -18,6 +18,7 @@ const browser = await launch(puppeteer, {
     width: 1920,
     height: 1080,
   },
+  args: ["--no-sandbox"],
 });
 
 // get the first page which is automatically created by puppeter
@@ -154,6 +155,11 @@ discordCommand.add("search", async (message, ...fullStr) => {
   lastMovieSearches.set(message.author.id, [sentMessage, result]);
 
   await showSearchPage(message.author.id, 1);
+});
+
+discordCommand.add("fixprofileselect", async (message) => {
+  await netflix.selectFirstProfile();
+  message.reply("Fixed profile select.");
 });
 
 discordCommand.add("page", async (message, pageNo) => {
