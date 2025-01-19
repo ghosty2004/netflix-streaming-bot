@@ -100,6 +100,12 @@ export class Netflix extends Mixin(EventEmitter<TEvents>) {
     this.playingMovie = movie;
   }
 
+  async goHomeAndResetCurrentPlayingMovie() {
+    await this.page.goto("https://www.netflix.com/browse").then(() => {
+      this.playingMovie = null;
+    });
+  }
+
   getCurrentPlayingMovie() {
     return this.playingMovie;
   }
@@ -206,9 +212,5 @@ export class Netflix extends Mixin(EventEmitter<TEvents>) {
     if (!this.playingMovie) return Promise.reject();
     this.page.keyboard.press("Space");
     return Promise.resolve();
-  }
-
-  async goHome() {
-    await this.page.goto("https://www.netflix.com/browse");
   }
 }

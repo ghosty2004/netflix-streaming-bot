@@ -131,11 +131,13 @@ discordCommand.add("startstream", async (message) => {
 });
 
 discordCommand.add("stopstream", async (message) => {
-  streamer.stopStream();
-  streamer.leaveVoice();
-  currentStream?.end?.();
-  currentStream = null;
-  await message.reply("Stopped streaming.");
+  netflix.goHomeAndResetCurrentPlayingMovie().then(() => {
+    streamer.stopStream();
+    streamer.leaveVoice();
+    currentStream?.end?.();
+    currentStream = null;
+    message.reply("Stopped streaming.");
+  });
 });
 
 discordCommand.add("search", async (message, ...fullStr) => {
@@ -267,7 +269,7 @@ discordCommand.add("setsubtitle", (message, subtitleNo) => {
 
 discordCommand.add("home", (message) => {
   netflix
-    .goHome()
+    .goHomeAndResetCurrentPlayingMovie()
     .then(() => {
       message.reply("Went to home.");
     })
